@@ -28,7 +28,7 @@ void loop(){
   
   Serial.println(digitalRead(right));
 
-  //line detected by both
+  //line detected by none
   if(digitalRead(left)==0 && digitalRead(right)==0){
     //Forward
     motor3.run(FORWARD);
@@ -40,7 +40,7 @@ void loop(){
     motor4.run(FORWARD);
     motor4.setSpeed(150);
   }
-  //line detected by left sensor
+  //line detected by right sensor
   else if(digitalRead(left)==0 && !digitalRead(right)==0){
     //turn left
     motor3.run(FORWARD);
@@ -53,7 +53,7 @@ void loop(){
     motor4.setSpeed(200);
     
   }
-  //line detected by right sensor
+  //line detected by left sensor
   else if(!digitalRead(left)==0 && digitalRead(right)==0){
     //turn right
     motor3.run(BACKWARD);
@@ -66,7 +66,7 @@ void loop(){
     motor4.setSpeed(200);
    
   }
-  //line detected by none
+  //line detected by all
   else if(!digitalRead(left)==0 && !digitalRead(right)==0){
     //stop
     motor3.run(RELEASE);
